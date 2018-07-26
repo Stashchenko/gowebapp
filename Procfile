@@ -1,1 +1,1 @@
-web: webapp
+web: revel run wepapp env="prod"
