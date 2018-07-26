@@ -15,9 +15,9 @@ import (
 )
 
 var (
-	runMode    = flag.String("runMode", "", "Run mode.")
+	runMode    = flag.String("runMode", "dev", "Run mode.")
 	port       = flag.Int("port", 0, "By default, read from app.conf")
-	importPath = flag.String("importPath", "", "Go Import Path for the app.")
+	importPath = flag.String("importPath", "webapp", "Go Import Path for the app.")
 	srcPath    = flag.String("srcPath", "", "Path to the source root.")
 
 	// So compiler won't complain if the generated code doesn't reference reflect package...
