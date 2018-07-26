@@ -36,7 +36,7 @@ func init() {
 	revel.OnAppStart(ExampleStartupScript)
 	// revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
-	//revel.OnAppStart(initApp)
+	revel.OnAppStart(initApp)
 }
 
 // HeaderFilter adds common security headers

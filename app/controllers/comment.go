@@ -12,11 +12,14 @@ type CommentController struct {
 	BaseController
 }
 
+const invalidCommendIdMessage = "Invalid comment id format"
+
 func (c CommentController) Index() revel.Result {
 	var (
 		comments []models.Comment
 		err      error
 	)
+
 	sort := c.GetParam("sort", "-created_at")
 	limit, _ := strconv.Atoi(c.GetParam("limit", "10"))
 
@@ -38,14 +41,14 @@ func (c CommentController) Show(id string) revel.Result {
 	)
 
 	if id == "" {
-		errResp := buildErrResponse(errors.New("Invalid comment id format"), "400")
+		errResp := buildErrResponse(errors.New(invalidCommendIdMessage), "400")
 		c.Response.Status = 400
 		return c.RenderJSON(errResp)
 	}
 
 	commentID, err = convertToObjectIdHex(id)
 	if err != nil {
-		errResp := buildErrResponse(errors.New("Invalid comment id format"), "400")
+		errResp := buildErrResponse(errors.New(invalidCommendIdMessage), "400")
 		c.Response.Status = 400
 		return c.RenderJSON(errResp)
 	}
@@ -111,15 +114,16 @@ func (c CommentController) Delete(id string) revel.Result {
 		comment   models.Comment
 		commentID bson.ObjectId
 	)
+
 	if id == "" {
-		errResp := buildErrResponse(errors.New("Invalid comment id format"), "400")
+		errResp := buildErrResponse(errors.New(invalidCommendIdMessage), "400")
 		c.Response.Status = 400
 		return c.RenderJSON(errResp)
 	}
 
 	commentID, err = convertToObjectIdHex(id)
 	if err != nil {
-		errResp := buildErrResponse(errors.New("Invalid comment id format"), "400")
+		errResp := buildErrResponse(errors.New(invalidCommendIdMessage), "400")
 		c.Response.Status = 400
 		return c.RenderJSON(errResp)
 	}
