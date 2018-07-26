@@ -4,8 +4,8 @@ import (
 	"errors"
 	"github.com/revel/revel"
 	"gopkg.in/mgo.v2/bson"
-	"webapp/app/models"
 	"strconv"
+	"webapp/app/models"
 )
 
 type CommentController struct {

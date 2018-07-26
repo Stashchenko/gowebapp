@@ -12,7 +12,6 @@ func (c App) Index() revel.Result {
 	return c.Render()
 }
 
-
 func (c App) Users() revel.Result {
 	return c.Render()
 }

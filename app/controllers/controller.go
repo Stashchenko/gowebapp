@@ -2,10 +2,10 @@ package controllers
 
 import (
 	"fmt"
-	"gopkg.in/mgo.v2/bson"
-	"strconv"
 	"github.com/revel/revel"
+	"gopkg.in/mgo.v2/bson"
 	"log"
+	"strconv"
 )
 
 type BaseController struct {
@@ -13,7 +13,6 @@ type BaseController struct {
 }
 
 type CtrlErr map[string]interface{}
-
 
 func (r BaseController) GetParam(key, defaultValue string) string {
 	value := r.Params.Query.Get(key)
@@ -23,7 +22,6 @@ func (r BaseController) GetParam(key, defaultValue string) string {
 	log.Printf("GetParam: key=%s, v=%s\n", key, value)
 	return value
 }
-
 
 func parseUintOrDefault(intStr string, _default uint64) uint64 {
 	if value, err := strconv.ParseUint(intStr, 0, 64); err != nil {

@@ -14,8 +14,6 @@ type Comment struct {
 	UpdatedAt time.Time     `json:"updated_at" bson:"updated_at"`
 }
 
-
-
 func newCommentCollection() *mongodb.Collection {
 	return mongodb.NewCollectionSession("comments")
 }
