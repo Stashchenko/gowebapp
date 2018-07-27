@@ -6,6 +6,7 @@ import (
 	"gopkg.in/mgo.v2/bson"
 	"log"
 	"strconv"
+	"errors"
 )
 
 type BaseController struct {
@@ -45,11 +46,16 @@ func convertToObjectIdHex(id string) (result bson.ObjectId, err error) {
 			err = fmt.Errorf("Unable to convert %v to object id", id)
 		}
 	}()
-
 	return bson.ObjectIdHex(id), err
 }
 
-func buildErrResponse(err error, errorCode string) CtrlErr {
+func (c BaseController) buildError(message string, errorCode int) revel.Result {
+	errResp := buildErrResponse(errors.New(message), errorCode)
+	c.Response.Status = errorCode
+	return c.RenderJSON(errResp)
+}
+
+func buildErrResponse(err error, errorCode int) CtrlErr {
 	ctrlErr := CtrlErr{}
 	ctrlErr["error_message"] = err.Error()
 	ctrlErr["error_code"] = errorCode
