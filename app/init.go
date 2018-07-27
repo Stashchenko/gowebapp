@@ -3,6 +3,7 @@ package app
 import (
 	"github.com/revel/revel"
 	"webapp/app/models/mongodb"
+	"log"
 )
 
 var (
@@ -55,7 +56,7 @@ func ExampleStartupScript() {
 	// revel.DevMod and revel.RunMode work here
 	// Use this script to check for dev mode and set dev/prod startup scripts here!
 	if revel.DevMode == true {
-
+		log.Print("revel.DevMode == true")
 	}
 }
 
