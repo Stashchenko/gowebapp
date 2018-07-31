@@ -35,7 +35,7 @@ func init() {
 	// revel.DevMode and revel.RunMode only work inside of OnAppStart. See Example Startup Script
 	// ( order dependent )
 	revel.OnAppStart(ExampleStartupScript)
-	// revel.OnAppStart(InitDB)
+	revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
 	//revel.OnAppStart(initApp)
 }
@@ -60,7 +60,7 @@ func ExampleStartupScript() {
 	}
 }
 
-func initApp() {
+func InitDB() {
 	mongodb.MaxPool = revel.Config.IntDefault("mongo.maxPool", 0)
 	mongodb.PATH, _ = revel.Config.String("mongo.path")
 	mongodb.DBNAME, _ = revel.Config.String("mongo.database")
