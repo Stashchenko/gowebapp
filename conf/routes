@@ -10,7 +10,7 @@ module:testrunner
 GET     /app                                    App.Index
 GET     /users                                  User.Index
 
-GET     /                                       CommentController.Index
+GET     /                                       App.Index
 
 
 # Ignore favicon requests
