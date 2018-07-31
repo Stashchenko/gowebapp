@@ -5,6 +5,8 @@ import (
 	"gopkg.in/mgo.v2/bson"
 	"strconv"
 	"webapp/app/models"
+	"time"
+	"github.com/revel/revel/cache"
 )
 
 type CommentController struct {
@@ -18,11 +20,16 @@ func (c CommentController) Index() revel.Result {
 		comments []models.Comment
 		err      error
 	)
-
 	sort := c.GetParam("sort", "-created_at")
 	limit, _ := strconv.Atoi(c.GetParam("limit", "10"))
 
-	comments, err = models.GetComments(limit, sort)
+	cacheKey := "comments_index" + sort + c.GetParam("limit", "10")
+
+	if err := cache.Get(cacheKey, &comments); err != nil {
+		comments, _ = models.GetComments(limit, sort)
+		go cache.Set(cacheKey, comments, 30*time.Minute)
+	}
+
 	if err != nil {
 		return c.buildError(err.Error(), 500)
 	}
@@ -45,7 +52,6 @@ func (c CommentController) Show(id string) revel.Result {
 	if err != nil {
 		return c.buildError(err.Error(), 500)
 	}
-
 	c.Response.Status = 200
 	return c.RenderJSON(comment)
 }
@@ -66,6 +72,7 @@ func (c CommentController) Create() revel.Result {
 		return c.buildError(err.Error(), 500)
 	}
 	c.Response.Status = 201
+	cache.Flush()
 	return c.RenderJSON(comment)
 }
 
@@ -83,6 +90,7 @@ func (c CommentController) Update() revel.Result {
 	if err != nil {
 		return c.buildError(err.Error(), 500)
 	}
+	cache.Flush()
 	return c.RenderJSON(comment)
 }
 
@@ -105,5 +113,6 @@ func (c CommentController) Delete(id string) revel.Result {
 		return c.buildError(err.Error(), 500)
 	}
 	c.Response.Status = 204
+	cache.Flush()
 	return c.RenderJSON(nil)
 }

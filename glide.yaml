@@ -13,3 +13,7 @@ import:
 - package: gopkg.in/mgo.v2
   subpackages:
   - bson
+- package: github.com/garyburd/redigo
+  version: v1.6.0
+  subpackages:
+  - redis

@@ -1,6 +1,15 @@
-hash: 60d1670c74b716a6557b01e008c8f7062d6a8484d42c6c1c69d1da931d740463
-updated: 2018-07-30T15:42:08.219877+03:00
+hash: 3792a9b985815405d4cd1d2a9264a95cb2df52aa156958e27f583d1f12b98ca1
+updated: 2018-07-31T16:33:05.255046+03:00
 imports:
+- name: github.com/bradfitz/gomemcache
+  version: bc664df9673713a0ccf26e3b55a673ec7301088b
+  subpackages:
+  - memcache
+- name: github.com/garyburd/redigo
+  version: a69d19351219b6dd56f274f96d85a7014a2ec34e
+  subpackages:
+  - internal
+  - redis
 - name: github.com/inconshreveable/log15
   version: 0decfc6c20d9ca0ad143b0e89dcaa20f810b4fb3
   subpackages:
@@ -17,6 +26,8 @@ imports:
   version: efa589957cd060542a26d2dd7832fd6a6c6c3ade
 - name: github.com/mattn/go-isatty
   version: 6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c
+- name: github.com/patrickmn/go-cache
+  version: 9f6ff22cfff829561052f5886ec80a2ac148b4eb
 - name: github.com/revel/config
   version: 662332b741dd464a886ab0901379c02b9bc5dc30
 - name: github.com/revel/log15
@@ -32,12 +43,13 @@ imports:
 - name: github.com/revel/revel
   version: 248166bf840eab87a88d1c18309f8e174e8327ff
   subpackages:
+  - cache
   - logger
   - testing
 - name: github.com/xeonx/timeago
   version: 714e6695c468c22fb6431a914d8c5f9d19fa2367
 - name: golang.org/x/net
-  version: c4299a1a0d8524c11563db160fbf9bddbceadb21
+  version: a0f8a16cb08c06df97cbdf9c47f4731ba548c33c
   subpackages:
   - websocket
 - name: golang.org/x/sys
