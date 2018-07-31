@@ -1,0 +1,15 @@
+package: webapp
+import:
+- package: github.com/revel/modules
+  version: ^0.19.0
+  subpackages:
+  - static/app/controllers
+  - testrunner/app
+  - testrunner/app/controllers
+- package: github.com/revel/revel
+  version: ^0.19.1
+  subpackages:
+  - testing
+- package: gopkg.in/mgo.v2
+  subpackages:
+  - bson

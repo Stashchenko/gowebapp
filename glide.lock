@@ -1,0 +1,60 @@
+hash: 60d1670c74b716a6557b01e008c8f7062d6a8484d42c6c1c69d1da931d740463
+updated: 2018-07-30T15:42:08.219877+03:00
+imports:
+- name: github.com/inconshreveable/log15
+  version: 0decfc6c20d9ca0ad143b0e89dcaa20f810b4fb3
+  subpackages:
+  - term
+- name: github.com/klauspost/compress
+  version: b939724e787a27c0005cabe3f78e7ed7987ac74f
+  subpackages:
+  - flate
+  - gzip
+  - zlib
+- name: github.com/klauspost/cpuid
+  version: e7e905edc00ea8827e58662220139109efea09db
+- name: github.com/mattn/go-colorable
+  version: efa589957cd060542a26d2dd7832fd6a6c6c3ade
+- name: github.com/mattn/go-isatty
+  version: 6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c
+- name: github.com/revel/config
+  version: 662332b741dd464a886ab0901379c02b9bc5dc30
+- name: github.com/revel/log15
+  version: 793412a67da6f8d15fede4c38f5c66272478cb8a
+- name: github.com/revel/modules
+  version: f97a4d0320f4ee755526333a0286f787a5bf6d8b
+  subpackages:
+  - static/app/controllers
+  - testrunner/app
+  - testrunner/app/controllers
+- name: github.com/revel/pathtree
+  version: 41257a1839e945fce74afd070e02bab2ea2c776a
+- name: github.com/revel/revel
+  version: 248166bf840eab87a88d1c18309f8e174e8327ff
+  subpackages:
+  - logger
+  - testing
+- name: github.com/xeonx/timeago
+  version: 714e6695c468c22fb6431a914d8c5f9d19fa2367
+- name: golang.org/x/net
+  version: c4299a1a0d8524c11563db160fbf9bddbceadb21
+  subpackages:
+  - websocket
+- name: golang.org/x/sys
+  version: bd9dbc187b6e1dacfdd2722a87e83093c2d7bd6e
+  subpackages:
+  - unix
+- name: gopkg.in/fsnotify/fsnotify.v1
+  version: c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9
+- name: gopkg.in/mgo.v2
+  version: 9856a29383ce1c59f308dd1cf0363a79b5bef6b5
+  subpackages:
+  - bson
+  - internal/json
+  - internal/sasl
+  - internal/scram
+- name: gopkg.in/natefinch/lumberjack.v2
+  version: a96e63847dc3c67d17befa69c303767e2f84e54f
+- name: gopkg.in/stack.v0
+  version: 9b43fcefddd0178abdabf4d484ab0d695d0011db
+testImports: []

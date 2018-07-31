@@ -2,8 +2,8 @@ package app
 
 import (
 	"github.com/revel/revel"
-	"webapp/app/models/mongodb"
 	"log"
+	"webapp/app/models/mongodb"
 )
 
 var (

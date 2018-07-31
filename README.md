@@ -1,7 +1,17 @@
+
 # Welcome to Revel
 
 A high-productivity web framework for the [Go language](http://www.golang.org/).
 
+# Install packages
+
+[Glide](https://github.com/Masterminds/glide).
+
+    glide install
+
+To get packages use:
+
+    glide get github.com/Masterminds/cookoo
 
 ### Start the web server:
 

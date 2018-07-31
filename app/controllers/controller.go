@@ -1,12 +1,12 @@
 package controllers
 
 import (
+	"errors"
 	"fmt"
 	"github.com/revel/revel"
 	"gopkg.in/mgo.v2/bson"
 	"log"
 	"strconv"
-	"errors"
 )
 
 type BaseController struct {
