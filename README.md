@@ -13,13 +13,19 @@ To get packages use:
 
     glide get github.com/Masterminds/cookoo
 
-### Start the web server:
+### Start the web server localhost:
 
    revel run myapp
 
 ### Go to http://localhost:9000/ and you'll see:
 
     "It works"
+
+## [Heroku](https://revelapi.herokuapp.com/) 
+
+Deploy to heroku: `git push heroku master`
+
+## [Postman Collection](public/Comments.postman_collection.json)    
 
 ## Code Layout
 

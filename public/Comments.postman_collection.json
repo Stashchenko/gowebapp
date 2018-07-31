@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "f2b0cb1c-feb4-4978-8c99-a7ddbaf79d93",
+		"name": "_01. Comments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Index",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "64f03b74-ce85-4acf-817f-69a31d49d72b",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"obj_id\", jsonData[0].id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{server}}/comments",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1750222f-436e-474c-955b-4f091412ba67",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{server}}/comments/{{obj_id}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"comments",
+						"{{obj_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1750222f-436e-474c-955b-4f091412ba67",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{server}}/comments/{{obj_id}}",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"comments",
+						"{{obj_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1750222f-436e-474c-955b-4f091412ba67",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"author\": \"Stashchenko2\",\n        \"text\": \"Hi there\"\n}"
+				},
+				"url": {
+					"raw": "{{server}}/comments",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1750222f-436e-474c-955b-4f091412ba67",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": \"{{obj_id}}\",\n        \"text\": \"Hi there, new one!!VCool\"\n}"
+				},
+				"url": {
+					"raw": "{{server}}/comments",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
