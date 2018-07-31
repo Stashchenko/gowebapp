@@ -11,12 +11,15 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "64f03b74-ce85-4acf-817f-69a31d49d72b",
+						"id": "1461671d-82e4-4516-ac38-0cf7d5460a6c",
 						"type": "text/javascript",
 						"exec": [
 							"tests[\"Status code is 200\"] = responseCode.code === 200;",
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"obj_id\", jsonData[0].id);"
+							"",
+							"if (jsonData.length > 0){",
+							"    postman.setEnvironmentVariable(\"obj_id\", jsonData[0].id);",
+							"}"
 						]
 					}
 				}
@@ -161,7 +164,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"id\": \"{{obj_id}}\",\n        \"text\": \"Hi there, new one!!VCool\"\n}"
+					"raw": "{\n        \"id\": \"{{obj_id}}\",\n        \"author\": \"NewONe1\"\n}"
 				},
 				"url": {
 					"raw": "{{server}}/comments",
