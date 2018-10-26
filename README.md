@@ -1,5 +1,5 @@
 
-# Welcome to Revel
+# Simple Revel Web APP with MongoDB and Redis
 
 A high-productivity web framework for the [Go language](http://www.golang.org/).
 
